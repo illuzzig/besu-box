@@ -1,0 +1,99 @@
+{
+  "name": "besu-box",
+  "version": "1.0.0",
+  "description": "This box comes with everything you need to get started with HL Besu",
+  "keywords": [
+    "besu",
+    "hyperledger",
+    "nestjs",
+    "truffle",
+    "elastic"
+  ],
+  "author": "Giuseppe",
+  "license": "MIT License",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "private": true,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "besu:docker": "docker run -p 8545:8545 --mount type=bind,source=/tmp/besu/dev,target=/var/lib/besu hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --network=dev --data-path=/var/lib/besu",
+    "besu:test": "besu --config-file=./besu_conf/besu_test_conf.toml",
+    "besu:ropsten": "besu  --network=ropsten --rpc-http-enabled --rpc-http-cors-origins 'http://remix.ethereum.org'",
+    "besu:rinkeby": "besu --network=rinkeby --data-path=<path>/<rinkebydata-path>",
+    "besu:goerli": "besu --network=goerli --data-path=<path>/<goerlidata-path>",
+    "besu:main": "besu --rpc-http-enabled"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/serve-static": "^2.1.0",
+    "axios": "^0.19.2",
+    "cjson": "^0.5.0",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.12.2",
+    "dotenv": "^8.2.0",
+    "elastic-apm-node": "^3.5.0",
+    "ethereumjs-tx": "^2.1.2",
+    "helmet": "^3.22.0",
+    "hex2dec": "^1.1.2",
+    "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^6.5.4",
+    "truffle-contract": "^4.0.31",
+    "web3": "^1.2.7"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^7.0.0",
+    "@nestjs/schematics": "^7.0.0",
+    "@nestjs/testing": "^7.0.0",
+    "@types/express": "^4.17.3",
+    "@types/jest": "25.1.4",
+    "@types/node": "^13.9.1",
+    "@types/supertest": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "25.2.1",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.7.4",
+    "@truffle/hdwallet-provider": "^1.0.34",
+    "truffle": "^5.1.22"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
