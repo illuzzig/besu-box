@@ -2,16 +2,13 @@ const { web3, privateKeys, metaCoinAddress, host, port } = require("./utils");
 const axios = require("axios");
 const assert = require("assert");
 
-const sendSignTransaction = async (rawTrans, from, to, amount) => {
+const getSignedTx = async (rawTrans, from) => {
   assert(
-    rawTrans && from && to && amount,
+    rawTrans && from,
     "Need to specify each param of sendSignTransaction-func"
   );
   assert(web3.utils.isAddress(from), "Sender's address is not valid");
-  assert(web3.utils.isAddress(to), "Receiver's address is not valid");
-  assert(amount > 0, "Amount is less than or equal to zero");
 
-  //console.log(await web3.eth.getBlock("latest"));
   const signed = await web3.eth.accounts.signTransaction(
     {
       to: metaCoinAddress,
@@ -26,10 +23,10 @@ const sendSignTransaction = async (rawTrans, from, to, amount) => {
     },
     privateKeys[0]
   );
-  await sendSigned(signed.rawTransaction, from, to, amount);
+  return signed.rawTransaction;
 };
 
-const sendSigned = async (rawTxHex, from, to, amount) => {
+const sendSignedTx = async (rawTxHex, from, to, amount) => {
   try {
     const resp = await axios.post(`http://${host}:${port}/transfer`, {
       sender: from,
@@ -43,6 +40,27 @@ const sendSigned = async (rawTxHex, from, to, amount) => {
   }
 };
 
+const directSendSignedTx = async (rawTxHex) => {
+  let resp;
+  try {
+    await web3.eth.sendSignedTransaction(rawTxHex).on("receipt", (receipt) => {
+      const { transactionHash, status, to, blockNumber } = receipt;
+      resp = {
+        transactionHash: transactionHash,
+        status: status,
+        to: to,
+        blockNumber: blockNumber,
+      };
+    });
+  } catch (error) {
+    console.log(error);
+    throw new BadRequestException({ description: error.message });
+  }
+  return resp;
+};
+
 module.exports = {
-  sendSignTransaction: sendSignTransaction,
+  getSignedTx: getSignedTx,
+  sendSignedTx: sendSignedTx,
+  directSendSignedTx: directSendSignedTx,
 };

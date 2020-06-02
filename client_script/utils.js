@@ -10,7 +10,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider(provider));
 
 // ******************************************************************** //
 //replace with your smart contract address
-const metaCoinAddress = "0x9B8397f1B0FEcD3a1a40CdD5E8221Fa461898517";
+const metaCoinAddress = "0xDE87AF9156a223404885002669D3bE239313Ae33";
 // ******************************************************************** //
 
 const privateKeys = [
