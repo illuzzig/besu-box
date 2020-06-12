@@ -41,15 +41,21 @@ mkdir -p /tmp/besu/dev/
 
 4. To run a node that mines blocks at a rate suitable for testing purposes
 ```javascript
+// ensure you are inside the app directory when running this
 npm run besu:docker
 ```
 
-5. Open a new terminal. Now you can deploy your smart contracts. 
+5. Now you can deploy your smart contracts. 
 ```javascript
+// in another terminal ensure you are inside the app directory when running this
 truffle migrate --network besu
 ```
 
-6. To run the Nestjs server, in a new window run `npm run start:dev`
+6. To run the Nestjs server
+```javascript
+// in another terminal ensure you are inside the app directory when running this
+npm run start:dev
+```
 
 7. In the browser window open [http://localhost:3000/balance/0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73](http://localhost:3000/balance/0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73). As you can see this address holds all the metaCoin tokens accordin to the business logic implemented into the smart contract
 
