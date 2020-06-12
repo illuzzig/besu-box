@@ -51,14 +51,14 @@ truffle migrate --network besu
 
 6. To run the Nestjs server, in a new window run `npm run start:dev`
 
-7. In the browser window open `[http://localhost:3000/balance/0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73](http://localhost:3000/balance/0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73)`. As you can see this address holds all the metaCoin tokens accordin to the business logic implemented into the smart contract
+7. In the browser window open [http://localhost:3000/balance/0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73](http://localhost:3000/balance/0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73). As you can see this address holds all the metaCoin tokens accordin to the business logic implemented into the smart contract
 
 8. Launch the transfer script (contained into the client_script folder). Make sure to set the variable `metaCoinAddress` (utils.js)
 ```javascript
 node transfer.js
 ```
 
-9. The second address will receive 10 tokens from the first one. In the browser window open `[http://localhost:3000/balance/0x627306090abaB3A6e1400e9345bC60c78a8BEf57](http://localhost:3000/balance/0x627306090abaB3A6e1400e9345bC60c78a8BEf57)`
+9. The second address will receive 10 tokens from the first one. In the browser window open [http://localhost:3000/balance/0x627306090abaB3A6e1400e9345bC60c78a8BEf57](http://localhost:3000/balance/0x627306090abaB3A6e1400e9345bC60c78a8BEf57)
 
 10. For web service monitoring and performance metrics you can enable the APM agent in the main.ts file and visualize the incoming requests with kibana. [Read More](https://www.elastic.co/guide/en/apm/agent/nodejs/current/index.html)
 
