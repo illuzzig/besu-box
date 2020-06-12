@@ -41,19 +41,22 @@ mkdir -p /tmp/besu/dev/
 
 4. To run a node that mines blocks at a rate suitable for testing purposes
 ```javascript
+// in another terminal (i.e. not in the truffle develop prompt)
 // ensure you are inside the app directory when running this
 npm run besu:docker
 ```
 
 5. Now you can deploy your smart contracts. 
 ```javascript
-// in another terminal ensure you are inside the app directory when running this
+// in another terminal (i.e. not in the truffle develop prompt)
+// ensure you are inside the app directory when running this
 truffle migrate --network besu
 ```
 
 6. To run the Nestjs server
 ```javascript
-// in another terminal ensure you are inside the app directory when running this
+// // in another terminal (i.e. not in the truffle develop prompt)
+// ensure you are inside the app directory when running this
 npm run start:dev
 ```
 
