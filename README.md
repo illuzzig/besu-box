@@ -55,7 +55,7 @@ truffle migrate --network besu
 
 6. To run the Nestjs server
 ```javascript
-// // in another terminal (i.e. not in the truffle develop prompt)
+// in another terminal (i.e. not in the truffle develop prompt)
 // ensure you are inside the app directory when running this
 npm run start:dev
 ```
