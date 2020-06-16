@@ -35,7 +35,8 @@
     "besu:ropsten": "besu  --network=ropsten --rpc-http-enabled --rpc-http-cors-origins 'http://remix.ethereum.org'",
     "besu:rinkeby": "besu --network=rinkeby --data-path=<path>/<rinkebydata-path>",
     "besu:goerli": "besu --network=goerli --data-path=<path>/<goerlidata-path>",
-    "besu:main": "besu --rpc-http-enabled"
+    "besu:main": "besu --rpc-http-enabled",
+    "transfer": "node ./client_script/transfer.js"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
