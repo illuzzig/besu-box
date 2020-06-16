@@ -63,6 +63,8 @@ npm run start:dev
 
 7. In a window terminal type 
 ```
+// in another terminal (i.e. not in the truffle develop prompt)
+// ensure you are inside the app directory when running this
 curl http://localhost:3000/balance/0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73 
 ```
 As you can see this address holds all the metaCoin tokens accordin to the business logic implemented into the smart contract. Below the response
@@ -85,6 +87,8 @@ npm run transfer
 
 10. The second address will receive 10 tokens from the first one. In a window terminal type 
 ```
+// in another terminal (i.e. not in the truffle develop prompt)
+// ensure you are inside the app directory when running this
 curl http://localhost:3000/balance/0x627306090abaB3A6e1400e9345bC60c78a8BEf57
 ```
 Below the response
