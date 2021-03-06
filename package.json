@@ -30,7 +30,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "besu:docker": "docker run -p 8545:8545 --mount type=bind,source=/tmp/besu/dev,target=/var/lib/besu hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --network=dev --data-path=/var/lib/besu",
+    "besu:docker": "docker run -p 8545:8545 --mount type=bind,source=/tmp/besu/dev,target=/var/lib/besu hyperledger/besu:latest --miner-enabled --miner-coinbase fe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-enabled --rpc-http-cors-origins=\"all\" --host-allowlist=\"*\" --network=dev --data-path=/var/lib/besu",
     "besu:test": "besu --config-file=./besu_conf/besu_test_conf.toml",
     "besu:ropsten": "besu  --network=ropsten --rpc-http-enabled --rpc-http-cors-origins 'http://remix.ethereum.org'",
     "besu:rinkeby": "besu --network=rinkeby --data-path=<path>/<rinkebydata-path>",
