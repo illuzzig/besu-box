@@ -46,7 +46,7 @@
     "axios": "^0.21.1",
     "cjson": "^0.5.0",
     "class-transformer": "^0.3.1",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "dotenv": "^8.2.0",
     "elastic-apm-node": "^3.5.0",
     "ethereumjs-tx": "^2.1.2",
